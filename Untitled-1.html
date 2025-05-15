@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ Section</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+
+      .faq-heading {
+        text-align: center;
+        font-family: "Nunito", sans-serif;
+        font-size: 32px;
+        color: #000;
+        margin-bottom: 30px;
+      }
+
+      .highlight {
+        color: #ffb800;
+      }
+
+      .faq-box {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px 20px;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #eee;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+        padding: 15px 0;
+        font-size: 18px;
+        color: #3c3c3c;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.5s ease;
+        font-size: 15px;
+        color: #5d5d5d;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        padding: 10px 0 20px;
+      }
+
+      .arrow {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .arrow {
+        transform: rotate(180deg);
+      }
+
+      .home-top-button {
+        background: radial-gradient(
+          circle,
+          rgba(255, 217, 113, 1) 0%,
+          rgba(186, 137, 4, 1) 100%
+        );
+        border-radius: 10px;
+        padding: 10px 16px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: #4d4d4d;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .faq-heading {
+          font-size: 28px;
+        }
+        .faq-question {
+          font-size: 16px;
+        }
+        .home-top-button {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .faq-heading {
+          font-size: 24px;
+        }
+        .faq-box {
+          padding: 20px 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="faq-container">
+      <h1 class="faq-heading">
+        Frequently Asked <span class="highlight">Questions</span>
+      </h1>
+
+      <div class="faq-box">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <p>What is Quetor and how does it work?</p>
+            <img
+              src="C:/Users/raghu/Downloads/Subtract.png"
+              alt="Toggle Arrow"
+              class="arrow"
+            />
+          </div>
+          <div class="faq-answer">
+            <p>
+              Quetor is a question paper automation software that helps
+              educational institutions create customized question papers quickly
+              and efficiently. The system allows you to select parameters like
+              subject, difficulty level, and question types, then generates
+              papers from our extensive question bank or your own content.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <p>Can I customize the format of the Question Papers?</p>
+            <img
+              src="C:/Users/raghu/Downloads/Subtract (1).png"
+              alt="Toggle Arrow"
+              class="arrow"
+            />
+          </div>
+          <div class="faq-answer" style="text-align: center">
+            <p>Don't see your answer? Contact here!</p>
+            <button class="home-top-button">Contact Support</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const faqItem = question.parentElement;
+          const isActive = faqItem.classList.contains("active");
+
+          // Close all
+          document.querySelectorAll(".faq-item").forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          // Open clicked one if it wasn't active already
+          if (!isActive) {
+            faqItem.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+`
